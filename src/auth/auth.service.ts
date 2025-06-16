@@ -16,6 +16,7 @@ export class AuthService {
           email: dto.email,
           password: hashPassword,
         }
+
       })
       console.log(user, 'auth.service.ts');
       return { msg: 'User signed up successfully', user };
