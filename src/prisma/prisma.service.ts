@@ -7,7 +7,7 @@ export class PrismaService extends PrismaClient {
         super({
             datasources: {
                 db: {
-                    url: 'postgresql://postgres:password@localhost:5432/nestjs-prisma',
+                    url: 'postgresql://neondb_owner:npg_tLjZqOUKk81P@ep-icy-rice-a8rboye0-pooler.eastus2.azure.neon.tech/neondb?sslmode=require',
                 },
             },
         });
