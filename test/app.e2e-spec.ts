@@ -68,7 +68,7 @@ describe('App e2e', () => {
             }
 
             it('Should signin a user', () => {
-                return pactum.spec().post('/auth/login').withBody(dto).expectStatus(200)
+                return pactum.spec().post('/auth/login').withBody(dto).expectStatus(200).stores('userToken', 'access_token')
             })
 
             it('Should not signin cause email blank', () => {
@@ -91,6 +91,14 @@ describe('App e2e', () => {
                     password: dto.password,
                 }).expectStatus(403)
             })
+        })
+    })
+
+    describe('User', () => {
+        it('Should get current user', () => {
+            return pactum.spec().get('/users/me').withHeaders({
+                Authorization: `Bearer $S{userToken}`
+            }).expectStatus(200)
         })
     })
 })
